@@ -3,79 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Segmentation - T-Shirt Analytics 🍒👥</title>
+    <title>Customer Segmentation - T-Shirt Analytics 🧵👥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            background: linear-gradient(135deg, #5a7bf8, #b26ef7, #ff6f91);
             color: #333;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            padding: 2rem;
+            background: linear-gradient(to right, #3b8cff, #00ddeb);
+            padding: 3rem 2rem;
             text-align: center;
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 1.2s ease-in;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         h1 {
             color: white;
             margin: 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav a {
-            color: #6e8efb;
+            color: #5a7bf8;
             text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            transition: color 0.3s;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s, transform 0.3s;
         }
 
         nav a:hover {
-            color: #a777e3;
+            color: #ff6f91;
+            transform: scale(1.1);
         }
 
         .container {
-            max-width: 1200px;
-            margin: 2rem auto;
+            max-width: 1300px;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
 
         .section {
             background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            animation: slideUp 0.5s ease-out;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: slideUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #3b8cff, #ff6f91);
         }
 
         h2 {
-            color: #6e8efb;
+            color: #5a7bf8;
             margin-top: 0;
+            font-size: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .tableau-embed {
             margin: 2rem 0;
-            border: 3px solid #a777e3;
-            border-radius: 10px;
+            border: 4px solid #b26ef7;
+            border-radius: 15px;
             overflow: hidden;
             animation: pulse 2s infinite;
             width: 100%;
-            height: 800px;
+            height: 850px;
+            transition: transform 0.3s;
+        }
+
+        .tableau-embed:hover {
+            transform: scale(1.01);
         }
 
         .tableauPlaceholder {
@@ -83,11 +116,42 @@
             height: 100%;
         }
 
+        .dashboard-info {
+            background: rgba(90, 123, 248, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .dashboard-info h3 {
+            color: #5a7bf8;
+            margin-top: 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .decorative-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: -1;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M0 100c50 0 50 50 100 50s50-50 100-50 50 50 100 50v50H0z" fill="%235a7bf8"/></svg>') repeat;
+        }
+
         footer {
             text-align: center;
-            padding: 1rem;
+            padding: 2rem;
             color: white;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            background: linear-gradient(to right, #3b8cff, #00ddeb);
+            font-size: 1rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
         }
 
         @keyframes fadeIn {
@@ -101,35 +165,44 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(167, 119, 227, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(167, 119, 227, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(167, 119, 227, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(178, 110, 247, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(178, 110, 247, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(178, 110, 247, 0); }
         }
 
         @media (max-width: 768px) {
-            nav a { display: block; margin: 0.5rem 0; }
-            h1 { font-size: 2rem; }
-            .tableau-embed { height: 600px; }
+            nav a { display: block; margin: 0.8rem 0; font-size: 1rem; }
+            h1 { font-size: 2.2rem; }
+            .section { padding: 2rem; }
+            .tableau-embed { height: 650px; }
         }
     </style>
 </head>
 <body>
+    <div class="decorative-bg"></div>
     <header>
-        <h1>Customer Segmentation Analytics 🍒👥</h1>
-        <p>Know Your Customers by Gender and Size Preferences! ✨</p>
+        <h1>Customer Segmentation Analytics 🧵👥🎽</h1>
+        <p>Know Your Customers by Gender and Size Preferences! 🚀✨</p>
     </header>
 
     <nav>
         <a href="index.html">Home 🏠</a>
         <a href="sales_performance.html">Sales Performance 📈</a>
-        <a href="revenue_segmentation.html">Revenue Segmentation 💰</a>
+        <a href="revenue_segmentation.html">Revenue Segmentation 💸</a>
         <a href="customer_segmentation.html">Customer Segmentation 👥</a>
     </nav>
 
     <div class="container">
         <div class="section">
-            <h2>Customer Segmentation by Gender and Size Preferences 👥</h2>
-            <p>Understand your customer base by gender and their preferred t-shirt sizes! 🎽</p>
+            <h2>Customer Segmentation by Gender and Size Preferences 👥🎽</h2>
+            <div class="dashboard-info">
+                <h3>What's in This Dashboard? 🔍</h3>
+                <p>This dashboard segments your customer base by gender (male, female, other) and their preferred t-shirt sizes (S, M, L, XL, etc.). It includes donut charts for gender distribution, histograms for size preferences, and cross-tabulations showing size preferences by gender. 📊👕</p>
+                <h3>Business Value 💡</h3>
+                <p>Understand your customer demographics to tailor inventory and marketing. Knowing which sizes are popular among specific genders helps optimize stock and design choices. For example, if males prefer XL sizes, you can ensure sufficient XL stock and promote it to male customers! 🧢📦</p>
+                <h3>Use Case Example 🚀</h3>
+                <p>Use this data to adjust inventory levels, create size-specific promotions, or design t-shirts that cater to the preferences of your largest customer segments. 🎉</p>
+            </div>
             <div class="tableau-embed">
                 <div class='tableauPlaceholder' id='viz169876543212'>
                     <noscript>
@@ -165,7 +238,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Shachar Natan's T-Shirt Analytics | Created with ❤️ and 🍒</p>
+        <p>© 2025 Shachar Natan's T-Shirt Analytics | Crafted with ❤️ and 🧵</p>
     </footer>
 
     <script>
