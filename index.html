@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shachar Natan's T-Shirt Analytics 🍒📊</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #6e8efb;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a777e3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        h2 {
+            color: #6e8efb;
+            margin-top: 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .analytics-button {
+            display: inline-block;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            padding: 1rem 2rem;
+            margin: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .analytics-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: white;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            nav a { display: block; margin: 0.5rem 0; }
+            h1 { font-size: 2rem; }
+            .analytics-button { display: block; margin: 1rem auto; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shachar Natan's T-Shirt Analytics 🍒📊</h1>
+        <p>Unlocking Insights for Your T-Shirt Business! ✨</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home 🏠</a>
+        <a href="sales_performance.html">Sales Performance 📈</a>
+        <a href="revenue_segmentation.html">Revenue Segmentation 💰</a>
+        <a href="customer_segmentation.html">Customer Segmentation 👥</a>
+    </nav>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to Your T-Shirt Analytics Hub! 🌟</h2>
+            <p>Explore Shachar Natan's analytics system to gain deep insights into your t-shirt business. Click the buttons below to dive into specific data visualizations! 🎉</p>
+            <div class="button-container">
+                <a href="sales_performance.html" class="analytics-button">Sales Performance by Cities and Most Popular Colors 📊</a>
+                <a href="revenue_segmentation.html" class="analytics-button">Revenue Segmentation by Gender and Customer Acquisition Sources 💰</a>
+                <a href="customer_segmentation.html" class="analytics-button">Customer Segmentation by Gender and Size Preferences 👥</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Shachar Natan's T-Shirt Analytics | Created with ❤️ and 🍒</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                window.location.href = targetId;
+            });
+        });
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.addEventListener('mouseover', () => {
+                section.style.transform = 'scale(1.02)';
+                section.style.transition = 'transform 0.3s';
+            });
+            section.addEventListener('mouseout', () => {
+                section.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
